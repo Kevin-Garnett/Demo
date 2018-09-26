@@ -7,10 +7,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Document(collection = "employees")
 public class Employee {
+
     @Id
-    String id;
+    private String id;
 
-    String firstName;
+    private String firstName;
 
-    String lastName;
+    private String lastName;
+
+    private String role;
+
 }
