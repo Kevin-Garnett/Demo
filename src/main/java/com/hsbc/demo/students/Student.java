@@ -1,4 +1,4 @@
-package com.hsbc.demo.bean;
+package com.hsbc.demo.students;
 
 import lombok.Data;
 import lombok.Getter;
@@ -12,7 +12,7 @@ import javax.persistence.Id;
 @Setter
 @Getter
 @Document(collection="student")
-public class StudentBean {
+public class Student {
 
     @Field("name")
     private String name;
@@ -23,7 +23,7 @@ public class StudentBean {
     @Field("age")
     private Integer age;
 
-    public StudentBean(String studentId){
+    public Student(String studentId){
         this.studentId = studentId;
     }
 

@@ -1,7 +1,5 @@
-package com.hsbc.demo.service;
+package com.hsbc.demo.students;
 
-import com.hsbc.demo.bean.StudentBean;
-import com.hsbc.demo.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +16,15 @@ public class StudentService
     @Autowired
     StudentRepository studentRepository;
 
-    public StudentBean getStudentBean(String studentId){
+    public Student getStudentBean(String studentId){
         return studentRepository.findByStudentId(studentId);
     }
 
-    public void saveStudentBean(StudentBean studentBean) {
-        studentRepository.save(studentBean);
+    public void saveStudentBean(Student student) {
+        studentRepository.save(student);
     }
 
-    public List<StudentBean> getStudentList(){
+    public List<Student> getStudentList(){
         return studentRepository.findAll();
     }
 

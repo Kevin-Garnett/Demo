@@ -1,5 +1,6 @@
 package com.hsbc.demo.bean;
 
+import com.hsbc.demo.images.Image;
 import org.junit.Test;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;

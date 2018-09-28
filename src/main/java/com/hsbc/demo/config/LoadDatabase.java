@@ -1,7 +1,7 @@
 package com.hsbc.demo.config;
 
-import com.hsbc.demo.bean.Chapter;
-import com.hsbc.demo.repository.ChapterRepository;
+import com.hsbc.demo.chapters.Chapter;
+import com.hsbc.demo.chapters.ChapterRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

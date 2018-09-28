@@ -1,6 +1,6 @@
-package com.hsbc.demo.repository;
+package com.hsbc.demo.chapters;
 
-import com.hsbc.demo.bean.Chapter;
+import com.hsbc.demo.chapters.Chapter;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
 public interface ChapterRepository extends ReactiveCrudRepository<Chapter, String> {

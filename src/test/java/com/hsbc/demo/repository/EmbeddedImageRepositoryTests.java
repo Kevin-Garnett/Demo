@@ -1,6 +1,7 @@
 package com.hsbc.demo.repository;
 
-import com.hsbc.demo.bean.Image;
+import com.hsbc.demo.images.Image;
+import com.hsbc.demo.images.ImageRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

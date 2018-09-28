@@ -1,6 +1,6 @@
 package com.hsbc.demo.config;
 
-import com.hsbc.demo.bean.Employee;
+import com.hsbc.demo.employees.Employee;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;

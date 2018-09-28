@@ -1,4 +1,4 @@
-package com.hsbc.demo.bean;
+package com.hsbc.demo.employees;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

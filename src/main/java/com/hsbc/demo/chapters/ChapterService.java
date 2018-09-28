@@ -1,7 +1,7 @@
-package com.hsbc.demo.service;
+package com.hsbc.demo.chapters;
 
-import com.hsbc.demo.bean.Chapter;
-import com.hsbc.demo.repository.ChapterRepository;
+import com.hsbc.demo.chapters.Chapter;
+import com.hsbc.demo.chapters.ChapterRepository;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 

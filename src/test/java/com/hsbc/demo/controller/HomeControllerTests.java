@@ -1,8 +1,9 @@
 package com.hsbc.demo.controller;
 
 import com.google.common.net.HttpHeaders;
-import com.hsbc.demo.bean.Image;
-import com.hsbc.demo.service.ImageService;
+import com.hsbc.demo.HomeController;
+import com.hsbc.demo.images.Image;
+import com.hsbc.demo.images.ImageService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,7 @@
-package com.hsbc.demo.service;
+package com.hsbc.demo.employees;
 
-import com.hsbc.demo.bean.Employee;
-import com.hsbc.demo.repository.EmployeeRepository;
-import com.mongodb.client.model.Filters;
+import com.hsbc.demo.employees.Employee;
+import com.hsbc.demo.employees.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;

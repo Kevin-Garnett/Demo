@@ -1,6 +1,6 @@
 package com.hsbc.demo.config;
 
-import com.hsbc.demo.bean.Image;
+import com.hsbc.demo.images.Image;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;

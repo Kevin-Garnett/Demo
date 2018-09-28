@@ -1,7 +1,5 @@
-package com.hsbc.demo.controller;
+package com.hsbc.demo.students;
 
-import com.hsbc.demo.bean.StudentBean;
-import com.hsbc.demo.service.StudentService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -23,14 +21,14 @@ public class StudentController {
             @ApiImplicitParam(name="name", value="Student Name", required=false, dataType="String")
     })
     @RequestMapping(value="/greeting", method=RequestMethod.GET)
-    public List<StudentBean> greeting(@RequestParam(required = true) String id, @RequestParam(required = false, defaultValue = "")String name){
+    public List<Student> greeting(@RequestParam(required = true) String id, @RequestParam(required = false, defaultValue = "")String name){
 
-        StudentBean studentBean = new StudentBean(id);
-        studentBean.setName(name);
-        studentBean.setAge(33);
-        studentService.saveStudentBean(studentBean);
+        Student student = new Student(id);
+        student.setName(name);
+        student.setAge(33);
+        studentService.saveStudentBean(student);
 
-        List<StudentBean> list = studentService.getStudentList();
+        List<Student> list = studentService.getStudentList();
         return list;
     }
 

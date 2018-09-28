@@ -1,6 +1,6 @@
-package com.hsbc.demo.repository;
+package com.hsbc.demo.employees;
 
-import com.hsbc.demo.bean.Employee;
+import com.hsbc.demo.employees.Employee;
 import org.springframework.data.repository.query.ReactiveQueryByExampleExecutor;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 

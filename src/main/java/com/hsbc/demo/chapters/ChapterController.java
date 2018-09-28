@@ -1,7 +1,5 @@
-package com.hsbc.demo.controller;
+package com.hsbc.demo.chapters;
 
-import com.hsbc.demo.bean.Chapter;
-import com.hsbc.demo.service.ChapterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package com.hsbc.demo.bean;
+package com.hsbc.demo.images;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

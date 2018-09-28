@@ -1,7 +1,8 @@
-package com.hsbc.demo.service;
+package com.hsbc.demo.images;
 
-import com.hsbc.demo.bean.Image;
-import com.hsbc.demo.repository.ImageRepository;
+import com.hsbc.demo.images.Image;
+import com.hsbc.demo.images.ImageRepository;
+import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 
@@ -30,9 +31,12 @@ public class ImageService {
 
     private final ImageRepository imageRepository;
 
-    public ImageService(ResourceLoader resourceLoader, ImageRepository imageRepository){
+    private final MeterRegistry meterRegistry;
+
+    public ImageService(ResourceLoader resourceLoader, ImageRepository imageRepository, MeterRegistry meterRegistry){
         this.resourceLoader = resourceLoader;
         this.imageRepository = imageRepository;
+        this.meterRegistry = meterRegistry;
     }
 
     @Bean
@@ -102,7 +106,15 @@ public class ImageService {
                            .flatMap(file::transferTo)
                            .log("createImage-copy");
 
-                   return Mono.when(saveDatabaseImage, copyFile)
+                   //For Actuator metric show the upload file info
+                   Mono<Void> countFile = Mono.fromRunnable( ()-> {
+                        meterRegistry
+                                .summary("files.uploaded.bytes")
+                                .record(Paths.get(UPLOAD_ROOT, file.filename()).toFile().length());
+                        }
+                   );
+
+                   return Mono.when(saveDatabaseImage, copyFile, countFile)
                            .log("createImage-when");
         })
                 .log("createImage-flatMap")

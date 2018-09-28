@@ -1,6 +1,6 @@
-package com.hsbc.demo.repository;
+package com.hsbc.demo.images;
 
-import com.hsbc.demo.bean.Image;
+import com.hsbc.demo.images.Image;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import reactor.core.publisher.Mono;
 
