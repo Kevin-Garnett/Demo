@@ -1,5 +1,6 @@
 package com.hsbc.demo;
 
+import com.hsbc.demo.images.CommentReaderRepository;
 import com.hsbc.demo.images.ImageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 @Controller
 public class HomeController {
@@ -24,8 +26,11 @@ public class HomeController {
 
     private final ImageService imageService;
 
-    public HomeController(ImageService imageService){
+    private final CommentReaderRepository repository;
+
+    public HomeController(ImageService imageService, CommentReaderRepository repository){
         this.imageService = imageService;
+        this.repository = repository;
     }
 
     @GetMapping(value=BASE_PATH + "/" + FILENAME + "/raw", produces = MediaType.IMAGE_JPEG_VALUE)
@@ -59,7 +64,25 @@ public class HomeController {
 
     @GetMapping("/")
     public Mono<String> index(Model model){
-        model.addAttribute("images", imageService.findAllImages());
+        model.addAttribute("images",
+                imageService.findAllImages()
+                .flatMap(image -> Mono.just(image)
+                .zipWith(repository.findByImageId(
+                        image.getId()).collectList()))
+                .map(imageAndComments -> new HashMap<String, Object>(){{
+                    System.out.println(imageAndComments.getT1().getId());
+                    System.out.println(imageAndComments.getT1().getName());
+                    System.out.println(imageAndComments.getT2());
+
+                        put("id", imageAndComments.getT1().getId());
+                        put("name", imageAndComments.getT1().getName());
+                        put("comments", imageAndComments.getT2());
+                        }
+                    }
+                )
+        );
+
+        // Test DevTools only
         model.addAttribute("extra", "DevTools can also detect code changes too");
         return Mono.just("index");
     }

@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.MongoOperations;
 
+import java.util.UUID;
+
 @Configuration
 public class InitDatabase {
 
@@ -19,9 +21,9 @@ public class InitDatabase {
     CommandLineRunner initialize(MongoOperations operations){
         return args -> {
             operations.dropCollection(Image.class);
-            operations.insert(new Image("1", "Kevin.jpg"));
-            operations.insert(new Image("2", "Sherry.jpg"));
-            operations.insert(new Image("3", "Gunter.jpg"));
+            operations.insert(new Image(UUID.randomUUID().toString(), "Kevin.jpg"));
+            operations.insert(new Image(UUID.randomUUID().toString(), "Sherry.jpg"));
+            operations.insert(new Image(UUID.randomUUID().toString(), "Gunter.jpg"));
 
             operations.findAll(Image.class).forEach(image -> {
                 logger.info(image.toString());

@@ -1,7 +1,5 @@
 package com.hsbc.demo.images;
 
-import com.hsbc.demo.images.Image;
-import com.hsbc.demo.images.ImageRepository;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

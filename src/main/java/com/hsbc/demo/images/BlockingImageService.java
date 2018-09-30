@@ -1,7 +1,5 @@
 package com.hsbc.demo.images;
 
-import com.hsbc.demo.images.Image;
-import com.hsbc.demo.images.ImageService;
 import org.springframework.core.io.Resource;
 import org.springframework.http.codec.multipart.FilePart;
 import org.springframework.stereotype.Service;

@@ -24,6 +24,8 @@
                         Image
                     </th>
                     <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -38,6 +40,18 @@
                     <td>
                         <form th:method="delete" th:action="@{'/image/' + ${image.name}}">
                             <input type="submit" value="Delete"/>
+                        </form>
+                    </td>
+                    <td>
+                        <ul>
+                            <li th:each="comment : ${image.comments}" th:text="${comment.comment}"/>
+                        </ul>
+                    </td>
+                    <td>
+                        <form th:method="post" th:action="@{'/comments'}">
+                            <input name="comment" value="" type="text"/>
+                            <input name="imageId" th:value="${image.id}" type="hidden"/>
+                            <input type="submit"/>
                         </form>
                     </td>
                 </tr>
